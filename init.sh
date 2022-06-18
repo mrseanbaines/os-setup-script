@@ -35,7 +35,7 @@ echo "Installing packages..."
 brew install ${PACKAGES[@]}
 
 # Install Node
-nvm install --latest-npm --lts
+nvm install --lts
 
 echo "Cleaning up..."
 
@@ -68,7 +68,7 @@ echo "Installing cask apps..."
 # Install Homebrew casks
 brew install ${CASKS[@]} --cask
 
-# Set fast key repeat rate
-# defaults write NSGlobalDomain KeyRepeat -int 0
+# Configure MacBook preferences
+./mac-os.sh
 
 echo "MacBook setup complete! 🎉"
