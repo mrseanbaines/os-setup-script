@@ -4,12 +4,6 @@
 
 echo "Starting setup..."
 
-# echo "Installing Xcode command line tools..."
-
-# Install Xcode command line tools
-# FIXME: Get rid of this (if e.g. Homebrew installs it already)?
-# xcode-select --install
-
 # Configure MacBook preferences
 source mac-os.sh
 
