@@ -2,36 +2,28 @@
 
 # Check for Homebrew to be present, install if it's missing
 if test ! $(which brew); then
-  echo "Installing Homebrew..."
-
   # Install Homebrew
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-echo "Updating packages..."
-
-# Update Homebrew packages
+# Make sure we’re using the latest Homebrew
 brew update
 
-PACKAGES=(
-  # List all the packages you want to install
+# Upgrade any already-installed formulae
+brew upgrade
+
+# Packages to install
+FORMULAE=(
   git
   nvm
   yarn
 )
 
-echo "Installing packages..."
+# Install Homebrew formulae
+brew install ${FORMULAE[@]}
 
-# Install Homebrew packages
-brew install ${PACKAGES[@]}
-
-echo "Cleaning up..."
-
-# Uninstall old versions of formulas
-brew cleanup
-
+# Applications to install
 CASKS=(
-  # List all the applications you want to install
   1password
   # authy
   # figma
@@ -51,7 +43,8 @@ CASKS=(
   # zoom
 )
 
-echo "Installing cask apps..."
-
 # Install Homebrew casks
 brew install ${CASKS[@]} --cask
+
+# Remove outdated versions from the cellar
+brew cleanup
