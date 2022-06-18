@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# Setup script for setting up a new macOS machine
-
 echo "Starting setup..."
 
 # Configure MacBook preferences

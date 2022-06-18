@@ -1,5 +1,7 @@
 # macOS setup script
 
+Setup script for setting up a new macOS machine
+
 ## Installation
 
 ```bash
