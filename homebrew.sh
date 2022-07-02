@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+echo "Running Homebrew steps..."
+
 # Check for Homebrew to be present, install if it's missing
 if test ! $(which brew); then
   # Install Homebrew
@@ -48,3 +50,5 @@ brew install ${CASKS[@]} --cask
 
 # Remove outdated versions from the cellar
 brew cleanup
+
+echo "Homebrew steps complete! 🎉"
