@@ -8,8 +8,8 @@ source mac-os.sh
 # Install Homebrew, update everything, install formulae & casks etc.
 source homebrew.sh
 
-# Install Node
-# FIXME: This doesn't seem to work. Work out how best to install Node
-# nvm install --lts
+# Install latest Node and set as default
+nvm install --lts
+nvm alias default 'lts/*'
 
 echo "MacBook setup complete! 🎉"
