@@ -19,6 +19,7 @@ FORMULAE=(
   git
   nvm
   yarn
+  zsh
 )
 
 # Install Homebrew formulae
