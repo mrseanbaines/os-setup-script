@@ -9,6 +9,9 @@ osascript -e 'tell application "System Preferences" to quit'
 # region - General UI/UX                                                       #
 ################################################################################
 
+# Set dark theme
+defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
+
 # Set sidebar icon size to medium
 defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 1
 
@@ -39,6 +42,15 @@ defaults write com.apple.finder ShowPathbar -bool true
 
 # Trackpad: disable tap to click
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool false
+defaults write com.apple.AppleMultitouchTrackpad Clicking -bool false
+
+# Trackpad: disable double-tap to zoom
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadTwoFingerDoubleTapGesture -int 0
+defaults write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerDoubleTapGesture -int 0
+
+# Disable swipe between pages
+defaults write d AppleEnableSwipeNavigateWithScrolls -bool false
+defaults write NSGlobalDomain AppleEnableSwipeNavigateWithScrolls -bool false
 
 # Disable “natural” scrolling
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
@@ -59,8 +71,11 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 15
 # region - Dock, Dashboard, and hot corners                                    #
 ################################################################################
 
-# Set the default icon size of Dock items to 36 pixels
-defaults write com.apple.dock tilesize -int 36
+# Enable dock icon magnification
+defaults write com.apple.dock magnification -bool true
+
+# Set the default icon size of Dock items to 32 pixels
+defaults write com.apple.dock tilesize -int 32
 
 # Set the magnified icon size of Dock items to 48 pixels
 defaults write com.apple.dock largesize -int 48
@@ -73,6 +88,15 @@ defaults write com.apple.dock autohide -bool true
 
 # Don’t show recent applications in Dock
 defaults write com.apple.dock show-recents -bool false
+
+# Set faster Dock hiding time
+defaults write com.apple.dock autohide-time-modifier -float 0.5
+
+# Turn off all hot corners
+defaults write com.apple.dock wvous-tl-corner -int 1
+defaults write com.apple.dock wvous-tr-corner -int 1
+defaults write com.apple.dock wvous-bl-corner -int 1
+defaults write com.apple.dock wvous-br-corner -int 1
 
 # endregion
 
