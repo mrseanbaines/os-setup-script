@@ -12,6 +12,9 @@ echo "Starting setup..."
 #   kill -0 "$$" || exit
 # done 2>/dev/null &
 
+# Install nvm & Node
+source node.sh
+
 # Configure MacBook preferences
 source mac-os.sh
 
@@ -20,9 +23,5 @@ source homebrew.sh
 
 # Configure shell and preferences
 # source shell.sh
-
-# Install latest Node and set as default
-nvm install --lts
-nvm alias default 'lts/*'
 
 echo "MacBook setup complete! 🎉"
