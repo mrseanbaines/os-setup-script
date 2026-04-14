@@ -13,6 +13,9 @@ osascript -e 'tell application "System Preferences" to quit'
 DISPLAY_ID=$(displayplacer list | awk '/Persistent screen id:/ { id = $NF } /MacBook built in screen/ { print id; exit }')
 displayplacer "id:$DISPLAY_ID res:1800x1169 hz:120 color_depth:8 scaling:on"
 
+# Disable automatic brightness adjustment
+defaults write com.apple.BezelServices dAuto -bool false
+
 # Set dark theme
 defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
 
@@ -49,11 +52,12 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool
 defaults write com.apple.AppleMultitouchTrackpad Clicking -bool false
 
 # Trackpad: disable double-tap to zoom
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadTwoFingerDoubleTapGesture -int 0
-defaults write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerDoubleTapGesture -int 0
-# TODO: Try these:
-# defaults -currentHost write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadTwoFingerDoubleTapGesture -int 0
-# defaults -currentHost write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerDoubleTapGesture -int 0
+defaults -currentHost write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadTwoFingerDoubleTapGesture -int 0
+defaults -currentHost write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerDoubleTapGesture -int 0
+
+# Trackpad: enable three-finger vertical swipe
+defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerVertSwipeGesture -int 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerVertSwipeGesture -int 2
 
 # Disable swipe between pages
 defaults write NSGlobalDomain AppleEnableSwipeNavigateWithScrolls -bool false
@@ -94,6 +98,9 @@ defaults write com.apple.dock autohide -bool true
 
 # Don’t show recent applications in Dock
 defaults write com.apple.dock show-recents -bool false
+
+# Enable App Exposé gesture
+defaults write com.apple.dock showAppExposeGestureEnabled -bool true
 
 # Set faster Dock hiding time
 defaults write com.apple.dock autohide-time-modifier -float 0.5
