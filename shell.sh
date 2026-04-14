@@ -10,8 +10,10 @@ fi
 # Install Oh My Zsh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# Download .zshrc from dotfiles repo (overwrites the Oh My Zsh template)
+# Download dotfiles
 curl -fsSL https://raw.githubusercontent.com/mrseanbaines/dotfiles/master/.zshrc -o ~/.zshrc
+curl -fsSL https://raw.githubusercontent.com/mrseanbaines/dotfiles/master/.gitconfig -o ~/.gitconfig
+curl -fsSL https://raw.githubusercontent.com/mrseanbaines/dotfiles/master/.gitignore_global -o ~/.gitignore_global
 
 # Append n (Node version manager) config
 echo 'export N_PREFIX="$HOME/.n"' >> ~/.zshrc
