@@ -9,6 +9,10 @@ osascript -e 'tell application "System Preferences" to quit'
 # region - General UI/UX                                                       #
 ################################################################################
 
+# Set display resolution to "More Space" (1800x1169 at 120hz)
+DISPLAY_ID=$(displayplacer list | awk '/Persistent screen id:/ { id = $NF } /MacBook built in screen/ { print id; exit }')
+displayplacer "id:$DISPLAY_ID res:1800x1169 hz:120 color_depth:8 scaling:on"
+
 # Set dark theme
 defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
 

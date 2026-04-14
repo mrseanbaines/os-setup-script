@@ -24,6 +24,7 @@ brew upgrade
 
 # Packages to install
 FORMULAE=(
+  displayplacer
   dockutil
   git
   n
