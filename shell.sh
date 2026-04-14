@@ -27,12 +27,6 @@ fi
 curl -fsSL https://raw.githubusercontent.com/mrseanbaines/dotfiles/master/.zshrc -o ~/.zshrc
 curl -fsSL https://raw.githubusercontent.com/mrseanbaines/dotfiles/master/.gitconfig -o ~/.gitconfig
 curl -fsSL https://raw.githubusercontent.com/mrseanbaines/dotfiles/master/.gitignore_global -o ~/.gitignore_global
-
-# Append Homebrew config (required on Apple Silicon where /opt/homebrew/bin is not in PATH by default)
-echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zshrc
-
-# Append n (Node version manager) config
-echo 'export N_PREFIX="$HOME/.n"' >> ~/.zshrc
-echo 'export PATH="$N_PREFIX/bin:$PATH"' >> ~/.zshrc
+curl -fsSL https://raw.githubusercontent.com/mrseanbaines/dotfiles/master/.zprofile -o ~/.zprofile
 
 echo "Shell configuration complete! 🎉"
