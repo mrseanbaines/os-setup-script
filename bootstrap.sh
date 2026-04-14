@@ -36,10 +36,10 @@ CHOICES=$(gum choose --no-limit \
   "macOS preferences" \
   "Shell")
 
-echo "$CHOICES" | grep -q "^Homebrew$"         && gum spin --spinner dot --title "Running Homebrew..."        -- bash homebrew.sh
-echo "$CHOICES" | grep -q "^Node$"             && gum spin --spinner dot --title "Installing Node..."          -- bash node.sh
-echo "$CHOICES" | grep -q "^macOS preferences$" && gum spin --spinner dot --title "Configuring macOS..."      -- bash mac-os.sh
-echo "$CHOICES" | grep -q "^Shell$"            && gum spin --spinner dot --title "Configuring shell..."        -- bash shell.sh
+echo "$CHOICES" | grep -q "^Homebrew$"          && gum spin --spinner dot --title "Running Homebrew..."  -- bash homebrew.sh
+echo "$CHOICES" | grep -q "^Node$"              && gum spin --spinner dot --title "Installing Node..."   -- bash node.sh
+echo "$CHOICES" | grep -q "^macOS preferences$" && gum spin --spinner dot --title "Configuring macOS..." -- bash mac-os.sh
+echo "$CHOICES" | grep -q "^Shell$"             && gum spin --spinner dot --title "Configuring shell..." -- bash shell.sh
 
 gum log --level info "MacBook setup complete!"
 
