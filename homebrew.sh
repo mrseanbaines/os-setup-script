@@ -3,7 +3,7 @@
 echo "Running Homebrew steps..."
 
 # Check for Homebrew to be present, install if it's missing
-if test ! $(which brew); then
+if ! command -v brew &>/dev/null; then
   # Install Homebrew
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
