@@ -23,7 +23,7 @@ FORMULAE=(
 )
 
 # Install Homebrew formulae
-brew install ${FORMULAE[@]}
+brew install "${FORMULAE[@]}"
 
 # Applications to install
 CASKS=(
@@ -47,7 +47,7 @@ CASKS=(
 )
 
 # Install Homebrew casks
-# brew install ${CASKS[@]} --cask
+brew install --cask "${CASKS[@]}"
 
 # Remove outdated versions from the cellar
 brew cleanup
