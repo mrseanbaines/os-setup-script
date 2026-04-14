@@ -53,8 +53,14 @@ CASKS=(
   zoom
 )
 
-# Install Homebrew casks
-brew install --cask "${CASKS[@]}"
+# Install Homebrew casks (skip any already installed)
+for cask in "${CASKS[@]}"; do
+  if brew list --cask "$cask" &>/dev/null; then
+    echo "Skipping $cask (already installed)"
+  else
+    brew install --cask "$cask"
+  fi
+done
 
 # Remove outdated versions from the cellar
 brew cleanup
