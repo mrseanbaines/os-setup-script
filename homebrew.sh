@@ -66,7 +66,7 @@ for cask in "${CASKS[@]}"; do
   if brew list --cask "$cask" &>/dev/null; then
     echo "Skipping $cask (already installed)"
   else
-    brew install --cask "$cask"
+    brew install --cask --adopt "$cask"
   fi
 done
 
