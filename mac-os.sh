@@ -99,4 +99,9 @@ defaults write com.apple.dock wvous-br-corner -int 1
 
 # endregion
 
+# Restart affected processes to apply changes
+killall Dock
+killall Finder
+killall SystemUIServer
+
 echo "MacBook preferences configured! 🎉"
