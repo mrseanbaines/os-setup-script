@@ -51,6 +51,9 @@ defaults write com.apple.AppleMultitouchTrackpad Clicking -bool false
 # Trackpad: disable double-tap to zoom
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadTwoFingerDoubleTapGesture -int 0
 defaults write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerDoubleTapGesture -int 0
+# TODO: Try these:
+# defaults -currentHost write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadTwoFingerDoubleTapGesture -int 0
+# defaults -currentHost write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerDoubleTapGesture -int 0
 
 # Disable swipe between pages
 defaults write NSGlobalDomain AppleEnableSwipeNavigateWithScrolls -bool false
