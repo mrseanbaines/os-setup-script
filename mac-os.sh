@@ -49,7 +49,6 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadTwoFin
 defaults write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerDoubleTapGesture -int 0
 
 # Disable swipe between pages
-defaults write d AppleEnableSwipeNavigateWithScrolls -bool false
 defaults write NSGlobalDomain AppleEnableSwipeNavigateWithScrolls -bool false
 
 # Disable “natural” scrolling
