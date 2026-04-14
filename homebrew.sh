@@ -28,21 +28,20 @@ brew install "${FORMULAE[@]}"
 # Applications to install
 CASKS=(
   1password
-  authy
+  claude
   figma
   firefox
   gifox
   google-chrome
   insomnia
-  iterm2
   linear-linear
   notion
   raycast
-  sketch
   slack
   spotify
   tableplus
   visual-studio-code
+  warp
   zoom
 )
 
