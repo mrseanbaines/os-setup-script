@@ -36,12 +36,12 @@ CHOICES=$(gum choose --no-limit \
   "macOS preferences" \
   "Shell")
 
-echo "$CHOICES" | grep -q "^Homebrew$"        && source homebrew.sh
-echo "$CHOICES" | grep -q "^Node$"             && source node.sh
-echo "$CHOICES" | grep -q "^macOS preferences$" && source mac-os.sh
-echo "$CHOICES" | grep -q "^Shell$"            && source shell.sh
+echo "$CHOICES" | grep -q "^Homebrew$"         && gum spin --spinner dot --title "Running Homebrew..."        -- bash homebrew.sh
+echo "$CHOICES" | grep -q "^Node$"             && gum spin --spinner dot --title "Installing Node..."          -- bash node.sh
+echo "$CHOICES" | grep -q "^macOS preferences$" && gum spin --spinner dot --title "Configuring macOS..."      -- bash mac-os.sh
+echo "$CHOICES" | grep -q "^Shell$"            && gum spin --spinner dot --title "Configuring shell..."        -- bash shell.sh
 
-echo "MacBook setup complete! 🎉"
+gum log --level info "MacBook setup complete!"
 
 # Load the new shell config into the current session
 source ~/.zshrc
