@@ -13,7 +13,7 @@ while true; do
 done 2>/dev/null &
 
 # Install Homebrew, update everything, install formulae & casks etc.
-# source homebrew.sh
+source homebrew.sh
 
 # Install Node
 source node.sh
