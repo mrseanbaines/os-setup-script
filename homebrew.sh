@@ -18,7 +18,7 @@ brew upgrade
 FORMULAE=(
   git
   n
-  yarn
+  pnpm
   zsh
 )
 
