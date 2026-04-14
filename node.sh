@@ -6,10 +6,6 @@ echo "Running Node steps..."
 export N_PREFIX="$HOME/.n"
 export PATH="$N_PREFIX/bin:$PATH"
 
-# Persist N_PREFIX and PATH for future shell sessions
-echo 'export N_PREFIX="$HOME/.n"' >> ~/.zshrc
-echo 'export PATH="$N_PREFIX/bin:$PATH"' >> ~/.zshrc
-
 # Install latest LTS Node
 n lts
 
