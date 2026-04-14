@@ -41,7 +41,7 @@ echo "$CHOICES" | grep -q "^Node$"              && gum spin --spinner dot --titl
 echo "$CHOICES" | grep -q "^macOS preferences$" && gum spin --spinner dot --title "Configuring macOS..." -- bash mac-os.sh
 echo "$CHOICES" | grep -q "^Shell$"             && gum spin --spinner dot --title "Configuring shell..." -- bash shell.sh
 
-gum log --level info "MacBook setup complete!"
+gum style --padding "1 4" --border double --border-foreground 57 "MacBook setup complete! 🎉"
 
 # Load the new shell config into the current session
 source ~/.zshrc
