@@ -2,8 +2,10 @@
 
 echo "Configuring shell..."
 
-# Set zsh as the default shell
-chsh -s $(which zsh)
+# Set zsh as the default shell (no-op on macOS Catalina+ where zsh is already the default)
+if [ "$SHELL" != "$(which zsh)" ]; then
+  sudo chsh -s $(which zsh) $USER
+fi
 
 # Install Oh My Zsh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
