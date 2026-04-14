@@ -12,14 +12,14 @@ while true; do
   kill -0 "$$" || exit
 done 2>/dev/null &
 
-# Install nvm & Node
+# Install Homebrew, update everything, install formulae & casks etc.
+source homebrew.sh
+
+# Install Node
 source node.sh
 
 # Configure MacBook preferences
 source mac-os.sh
-
-# Install Homebrew, update everything, install formulae & casks etc.
-source homebrew.sh
 
 # Configure shell and preferences
 source shell.sh
