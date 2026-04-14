@@ -17,7 +17,7 @@ brew upgrade
 # Packages to install
 FORMULAE=(
   git
-  # nvm
+  n
   yarn
   zsh
 )
