@@ -3,7 +3,7 @@
 echo "Configuring shell..."
 
 # Set zsh as the default shell (no-op on macOS Catalina+ where zsh is already the default)
-if [ "$SHELL" != "$(which zsh)" ]; then
+if [[ "$SHELL" != */zsh ]]; then
   sudo chsh -s $(which zsh) $USER
 fi
 
