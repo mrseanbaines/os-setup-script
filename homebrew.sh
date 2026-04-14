@@ -32,8 +32,14 @@ FORMULAE=(
   zsh
 )
 
-# Install Homebrew formulae
-brew install "${FORMULAE[@]}"
+# Install Homebrew formulae (skip any already installed)
+for formula in "${FORMULAE[@]}"; do
+  if brew list --formula "$formula" &>/dev/null; then
+    echo "Skipping $formula (already installed)"
+  else
+    brew install "$formula"
+  fi
+done
 
 # Applications to install
 CASKS=(
