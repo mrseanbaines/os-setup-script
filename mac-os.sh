@@ -91,6 +91,18 @@ defaults write com.apple.dock show-recents -bool false
 # Set faster Dock hiding time
 defaults write com.apple.dock autohide-time-modifier -float 0.5
 
+# Set Dock items
+dockutil --remove all --no-restart
+dockutil --add '/Applications/Firefox.app' --no-restart
+dockutil --add '/Applications/Slack.app' --no-restart
+dockutil --add '/Applications/Visual Studio Code.app' --no-restart
+dockutil --add '/Applications/Linear.app' --no-restart
+dockutil --add '/Applications/Warp.app' --no-restart
+dockutil --add '/Applications/Figma.app' --no-restart
+dockutil --add '/Applications/Notion.app' --no-restart
+dockutil --add '/Applications/Claude.app' --no-restart
+dockutil --add '/Applications/Spotify.app' --no-restart
+
 # Turn off all hot corners
 defaults write com.apple.dock wvous-tl-corner -int 1
 defaults write com.apple.dock wvous-tr-corner -int 1
