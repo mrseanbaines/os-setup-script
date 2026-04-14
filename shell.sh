@@ -7,8 +7,10 @@ if [[ "$SHELL" != */zsh ]]; then
   sudo chsh -s $(which zsh) $USER
 fi
 
-# Install Oh My Zsh
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# Install Oh My Zsh (skip if already installed)
+if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
 
 # Download dotfiles
 curl -fsSL https://raw.githubusercontent.com/mrseanbaines/dotfiles/master/.zshrc -o ~/.zshrc
