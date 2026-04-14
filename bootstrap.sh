@@ -13,7 +13,7 @@ while true; do
 done 2>/dev/null &
 
 # Install Homebrew, update everything, install formulae & casks etc.
-source homebrew.sh
+# source homebrew.sh
 
 # Install Node
 source node.sh
@@ -25,3 +25,6 @@ source mac-os.sh
 source shell.sh
 
 echo "MacBook setup complete! 🎉"
+
+# Load the new shell config into the current session
+source ~/.zshrc
