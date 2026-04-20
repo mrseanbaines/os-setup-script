@@ -35,6 +35,15 @@ defaults write com.apple.LaunchServices LSQuarantine -bool false
 # endregion
 
 ################################################################################
+# region - Battery                                                             #
+################################################################################
+
+# Disable "Slightly dim the display on battery"
+sudo pmset -b lessbright 0
+
+# endregion
+
+################################################################################
 # region - Finder                                                              #
 ################################################################################
 
