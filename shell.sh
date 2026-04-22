@@ -24,7 +24,19 @@ if [[ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]]; then
 fi
 
 # Download dotfiles
-curl -fsSL https://raw.githubusercontent.com/mrseanbaines/dotfiles/master/.zshrc -o ~/.zshrc
+# Preserve anything between # BEGIN CUSTOM / # END CUSTOM
+ZSHRC="$HOME/.zshrc"
+CUSTOM_CONTENT=""
+if [[ -f "$ZSHRC" ]]; then
+  CUSTOM_CONTENT=$(awk '/^# BEGIN CUSTOM$/{found=1; next} /^# END CUSTOM$/{found=0; next} found{print}' "$ZSHRC")
+fi
+
+curl -fsSL https://raw.githubusercontent.com/mrseanbaines/dotfiles/master/.zshrc -o "$ZSHRC"
+
+# Strip any pre-existing custom block from the downloaded file, then re-append
+sed -i '' '/^# BEGIN CUSTOM$/,/^# END CUSTOM$/d' "$ZSHRC"
+printf '\n# BEGIN CUSTOM\n%s\n# END CUSTOM\n' "$CUSTOM_CONTENT" >> "$ZSHRC"
+
 curl -fsSL https://raw.githubusercontent.com/mrseanbaines/dotfiles/master/.gitconfig -o ~/.gitconfig
 curl -fsSL https://raw.githubusercontent.com/mrseanbaines/dotfiles/master/.gitignore_global -o ~/.gitignore_global
 curl -fsSL https://raw.githubusercontent.com/mrseanbaines/dotfiles/master/.zprofile -o ~/.zprofile
