@@ -9,9 +9,14 @@ osascript -e 'tell application "System Preferences" to quit'
 # region - General UI/UX                                                       #
 ################################################################################
 
-# Set display resolution to "More Space" (1800x1169 at 120hz)
-DISPLAY_ID=$(displayplacer list | awk '/Persistent screen id:/ { id = $NF } /MacBook built in screen/ { print id; exit }')
-displayplacer "id:$DISPLAY_ID res:1800x1169 hz:120 color_depth:8 scaling:on"
+# Set display resolution to "More Space" (1800x1169 at 120hz) and external monitor to the left
+MACBOOK_DISPLAY_ID=$(displayplacer list | awk '/Persistent screen id:/ { id = $NF } /MacBook built in screen/ { print id; exit }')
+EXTERNAL_DISPLAY_ID=$(displayplacer list | awk '/Persistent screen id:/ { id = $NF } /external screen/ { print id; exit }')
+if [ -n "$EXTERNAL_DISPLAY_ID" ]; then
+  displayplacer "id:$MACBOOK_DISPLAY_ID res:1800x1169 hz:120 color_depth:8 scaling:on origin:(0,0)" "id:$EXTERNAL_DISPLAY_ID res:2560x1440 hz:60 color_depth:8 scaling:on origin:(-2560,-271)"
+else
+  displayplacer "id:$MACBOOK_DISPLAY_ID res:1800x1169 hz:120 color_depth:8 scaling:on"
+fi
 
 # Disable automatic brightness adjustment
 defaults write com.apple.BezelServices dAuto -bool false
