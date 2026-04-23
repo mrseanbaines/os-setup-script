@@ -84,6 +84,9 @@ defaults write NSGlobalDomain com.apple.trackpad.scaling -float 3
 defaults write NSGlobalDomain KeyRepeat -int 2
 defaults write NSGlobalDomain InitialKeyRepeat -int 15
 
+# Disable adding a full stop when double-tapping the space bar
+defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
+
 # endregion
 
 ################################################################################
