@@ -47,7 +47,9 @@ defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool fa
 ################################################################################
 
 # Disable "Slightly dim the display on battery"
-sudo pmset -b lessbright 0
+if [ "$(pmset -g custom | awk '/lessbright/ { print $2 }')" != "0" ]; then
+  sudo pmset -b lessbright 0
+fi
 
 # endregion
 
