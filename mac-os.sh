@@ -133,6 +133,8 @@ dockutil --add '/Applications/Figma.app' --no-restart
 dockutil --add '/Applications/Notion.app' --no-restart
 dockutil --add '/Applications/Claude.app' --no-restart
 dockutil --add '/Applications/Spotify.app' --no-restart
+dockutil --add '~/Downloads' --view fan --display folder --sort dateadded --section others --no-restart
+dockutil --add '/Applications' --view grid --display folder --sort name --section others --no-restart
 
 # Turn off all hot corners
 defaults write com.apple.dock wvous-tl-corner -int 1
