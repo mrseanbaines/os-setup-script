@@ -9,7 +9,4 @@ elif [[ -f /usr/local/bin/brew ]]; then
   eval "$(/usr/local/bin/brew shellenv)"
 fi
 
-# Install latest LTS Node
-n lts
-
 echo "Node steps complete! 🎉"
